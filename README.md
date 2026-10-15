@@ -6,6 +6,35 @@ input object, scalar, connection or payload page it shows, at a glance, how the 
 changed across API versions and lets you diff it against any other version, including
 `unstable`.
 
+## Screenshots
+
+**Version banner** on every reference page: lifecycle facts, one chip per version (✓ identical,
+≠ different, – missing), compare target, global report and the "only changes" filter.
+
+![Version banner on the Order object](docs/screenshots/banner.jpg)
+
+**Compare panel**: plain-language summary of what changed plus a schema diff. Type pages can pull
+in directly referenced types.
+
+![Compare panel diffing Order between 2026-10 and unstable](docs/screenshots/compare.jpg)
+
+**What changed between two versions**: every added, removed or changed mutation, query and type,
+grouped and linked, with inline details.
+
+![Global report for 2026-10 to unstable](docs/screenshots/report.jpg)
+
+**Only changes**: the sidebar and the field list collapse to what differs in the compare target.
+
+![Only changes filter on the Order object](docs/screenshots/only-changes.jpg)
+
+**Field badges**: when each field appeared, deprecations, and differences against the target.
+
+![Field badges on SubscriptionContract](docs/screenshots/field-badges.jpg)
+
+**New in this version**: sidebar dots and the title badge for what the viewed version introduced.
+
+![A mutation introduced in 2026-10 with sidebar marks](docs/screenshots/new-in-version.jpg)
+
 ## What you get
 
 **Banner** at the top of the page
