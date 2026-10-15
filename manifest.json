@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "Shopify Dev Version Compare",
+  "version": "0.4.1",
+  "description": "On shopify.dev GraphQL reference pages (Admin, Storefront), shows which API version introduced the mutation/query/type and each of its fields, and diffs it against other versions such as unstable.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://shopify.dev/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://shopify.dev/docs/*"
+      ],
+      "js": [
+        "content/settings.js",
+        "content/sdl.js",
+        "content/diff.js",
+        "content/content.js"
+      ],
+      "css": [
+        "content/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "commands": {
+    "compare-unstable": {
+      "suggested_key": {
+        "default": "Alt+Shift+U",
+        "mac": "Alt+Shift+U"
+      },
+      "description": "Compare the current item with the unstable API version"
+    },
+    "global-diff": {
+      "suggested_key": {
+        "default": "Alt+Shift+G",
+        "mac": "Alt+Shift+G"
+      },
+      "description": "Open the global \"what changed\" report between the viewed version and the compare target"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Shopify Dev Version Compare</title>
+  <style>
+    body { font: 13px/1.45 system-ui, sans-serif; margin: 0; padding: 14px; width: 300px; color: #202223; background: #fff; }
+    @media (prefers-color-scheme: dark) { body { color: #e3e5e7; background: #1a1c1e; } button, select { color: inherit; background: #202327; border-color: #3a3f45; } }
+    h1 { font-size: 14px; margin: 0 0 8px; }
+    h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #6d7175; margin: 14px 0 6px; }
+    p { margin: 6px 0; color: #6d7175; }
+    label { display: flex; align-items: center; gap: 8px; margin: 5px 0; }
+    label.row { justify-content: space-between; }
+    button, select { font: inherit; padding: 5px 10px; border-radius: 6px; border: 1px solid #d2d5d8; background: #fff; cursor: pointer; }
+    button:hover { border-color: #008060; }
+    code { font-size: 12px; }
+    kbd { font: 11px ui-monospace, monospace; border: 1px solid #d2d5d8; border-radius: 4px; padding: 0 4px; }
+  </style>
+</head>
+<body>
+  <h1>Shopify Dev Version Compare</h1>
+  <p>Works on Admin and Storefront GraphQL reference pages on <code>shopify.dev</code>.</p>
+
+  <h2>Display</h2>
+  <label><input type="checkbox" data-setting="collapsed"> Collapse the banner by default</label>
+  <label><input type="checkbox" data-setting="inlineBadge"> "since" badge next to the page title</label>
+  <label><input type="checkbox" data-setting="memberBadges"> Badges on fields, arguments and enum values</label>
+  <label><input type="checkbox" data-setting="changelog"> Show matching changelog entries</label>
+  <label><input type="checkbox" data-setting="newMarks"> Highlight items new in the version you are viewing (sidebar, links, fields)</label>
+  <label><input type="checkbox" data-setting="onlyChanges"> Only show sidebar entries and fields that differ in the compare target</label>
+  <p><button id="report">What changed vs unstable…</button> <span style="color:#6d7175">(opens on the current docs tab)</span></p>
+  <label class="row">Default compare target
+    <select data-setting="defaultTarget">
+      <option value="unstable">unstable</option>
+      <option value="latest">latest stable</option>
+    </select>
+  </label>
+
+  <h2>Performance</h2>
+  <label><input type="checkbox" data-setting="prefetch"> Prefetch schemas in the background</label>
+  <p id="stats">Cache: …</p>
+  <button id="clear">Clear cached schema data</button>
+  <p id="note"></p>
+
+  <h2>Shortcut</h2>
+  <p><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> compares the current item with unstable, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> opens the global "what changed" report. Change it at <code>chrome://extensions/shortcuts</code>.</p>
+  <script src="content/settings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
